@@ -1,0 +1,66 @@
+<tree>
+  <declarations>
+    <attributeDecl name="nome" type="String"/>
+    <attributeDecl name="tipo" type="String"/>
+  </declarations>
+  <branch>
+    <attribute name="nome" value=" Z "/>
+    <attribute name="tipo" value="raiz"/>
+    <branch>
+      <attribute name="nome" value=" J "/>
+      <attribute name="tipo" value="galho"/>
+      <branch>
+        <attribute name="nome" value=" I "/>
+        <attribute name="tipo" value="galho"/>
+        <branch>
+          <attribute name="nome" value=" E "/>
+          <attribute name="tipo" value="galho"/>
+          <branch>
+            <attribute name="nome" value=" A "/>
+            <attribute name="tipo" value="galho"/>
+          <leaf>
+            <attribute name="nome" value=" null "/>
+            <attribute name="tipo" value="folha"/>
+          </leaf>
+            <branch>
+              <attribute name="nome" value=" C "/>
+              <attribute name="tipo" value="galho"/>
+            </branch>
+          </branch>
+          <branch>
+            <attribute name="nome" value=" G "/>
+            <attribute name="tipo" value="galho"/>
+          </branch>
+        </branch>
+      <leaf>
+        <attribute name="nome" value=" null "/>
+        <attribute name="tipo" value="folha"/>
+      </leaf>
+      </branch>
+      <branch>
+        <attribute name="nome" value=" K "/>
+        <attribute name="tipo" value="galho"/>
+      <leaf>
+        <attribute name="nome" value=" null "/>
+        <attribute name="tipo" value="folha"/>
+      </leaf>
+        <branch>
+          <attribute name="nome" value=" L "/>
+          <attribute name="tipo" value="galho"/>
+        <leaf>
+          <attribute name="nome" value=" null "/>
+          <attribute name="tipo" value="folha"/>
+        </leaf>
+          <branch>
+            <attribute name="nome" value=" W "/>
+            <attribute name="tipo" value="galho"/>
+          </branch>
+        </branch>
+      </branch>
+    </branch>
+  <leaf>
+    <attribute name="nome" value=" null "/>
+    <attribute name="tipo" value="folha"/>
+  </leaf>
+  </branch>
+</tree>
