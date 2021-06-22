@@ -271,14 +271,18 @@ public class TreeView extends Display {
         public int getColor( VisualItem item ) {
 
             String tipo = item.getString( "tipo" );
+            String nome = item.getString( "nome" );
             
             if ( tipo.equals( "raiz" ) ) {
                 return corRaiz.getRGB();
             } else if ( tipo.equals( "galho" ) ) {
                 return corGalho.getRGB();
-            }else if ( tipo.equals( "folha" ) ) {
+            }else if ( tipo.equals( "folha" ) && !nome.equals( " null " ) ) {
                 return corFolha.getRGB();
-            } else {
+            }else if( tipo.equals( "folha" ) && nome.equals( " null " ) ){
+                Color colorNull = new Color( 211, 211, 211 );
+                return colorNull.getRGB();
+            }else {
                 return ColorLib.rgb( 255, 255, 255 );
             }
 

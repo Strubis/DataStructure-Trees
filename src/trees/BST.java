@@ -214,69 +214,70 @@ public class BST <Key extends Comparable<Key>, Value>{
     }
     
     public void visitRoot(Node x){
-        openBranch(x.key.toString(), "raiz");
-        
-        if( x.left == null && x.right == null){
-            closeBranch();
+        // Se não tiver filhos, criamos um nó folha.
+        if( x.left == null && x.right == null ){
+            createLeaf( x.key.toString() );
             return;
         }
         
-        if( x.left != null){
-            visitLeft(x.left);
+        openBranch( x.key.toString(), "raiz" );
+        
+        if( x.left != null ){
+            visitLeft( x.left );
         }else{
-            createLeaf("null");
+            createLeaf( "null" );
         }
         
-        if( x.right != null){
-            visitRight(x.right);
+        if( x.right != null ){
+            visitRight( x.right );
         }else{
-            createLeaf("null");
+            createLeaf( "null" );
         }
         
         closeBranch();
     }
     
     public void visitLeft(Node l){
-        openBranch(l.key.toString());
-        
-        if( l.left == null && l.right == null){
-            closeBranch();
+        if( l.left == null && l.right == null ){
+            createLeaf( l.key.toString() );
             return;
         }
         
-        if( l.left != null){
-            visitLeft(l.left);
+        openBranch( l.key.toString() );
+        
+        if( l.left != null ){
+            visitLeft( l.left );
         }else{
-            createLeaf("null");
+            createLeaf( "null" );
         }
         
-        if( l.right != null){
-            visitRight(l.right);
+        if( l.right != null ){
+            visitRight( l.right );
         }else{
-            createLeaf("null");
+            createLeaf( "null" );
         }
         
         closeBranch();
     }
     
     public void visitRight(Node r){
-        openBranch(r.key.toString());
-        
-        if( r.left == null && r.right == null){
-            closeBranch();
+        if( r.left == null && r.right == null ){
+            createLeaf( r.key.toString() );
             return;
         }
         
-        if( r.left != null){
-            visitLeft(r.left);
+        openBranch( r.key.toString() );
+        
+        if( r.left != null ){
+            visitLeft( r.left );
         }else{
-            createLeaf("null");
+            createLeaf( "null" );
         }
         
-        if( r.right != null){
-            visitRight(r.right);
+        if( r.right != null ){
+            visitRight( r.right );
         }else{
-            createLeaf("null");
+            createLeaf( "null" );
         }
         
         closeBranch();
