@@ -14,8 +14,11 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 /**
+ * The main class, responsible for displaying the graphical interface 
+ * according to the selected tree.
  *
  * @author Emerson
+ * @since 06/2021
  */
 public class ASTViewer extends javax.swing.JFrame {
     private BST tree;
@@ -25,7 +28,6 @@ public class ASTViewer extends javax.swing.JFrame {
      */
     public ASTViewer() {
         initComponents();
-        tree = new BST();
     }
     
     /**
@@ -37,33 +39,52 @@ public class ASTViewer extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         btnBST = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("AST Viewer");
+        setBackground(new java.awt.Color(102, 102, 102));
 
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+
+        btnBST.setBackground(new java.awt.Color(204, 204, 204));
+        btnBST.setFont(new java.awt.Font("Lucida Console", 1, 12)); // NOI18N
+        btnBST.setForeground(new java.awt.Color(51, 51, 51));
         btnBST.setText("Binary Search Tree");
+        btnBST.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnBST.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBSTActionPerformed(evt);
             }
         });
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addComponent(btnBST)
+                .addContainerGap(74, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(btnBST)
+                .addContainerGap(175, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(btnBST)
-                .addContainerGap(88, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(btnBST)
-                .addContainerGap(168, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -71,6 +92,8 @@ public class ASTViewer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBSTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBSTActionPerformed
+        
+        tree = new BST();
         
         try{
             
@@ -91,6 +114,9 @@ public class ASTViewer extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnBSTActionPerformed
     
+    /**
+     * This method generates a random string [].
+     */
     private void insertElements(){
         String[] element = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
                 .split(" ");
@@ -127,5 +153,6 @@ public class ASTViewer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBST;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
