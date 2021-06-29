@@ -106,8 +106,6 @@ public class ASTViewer extends javax.swing.JFrame {
             
             new JDTreeView( this, true ).setVisible( true );
             
-            tree = new BST();
-            
         }catch(FileNotFoundException fl){
             System.out.println( fl.getMessage() );
         } 
@@ -127,7 +125,7 @@ public class ASTViewer extends javax.swing.JFrame {
             int aux = StdRandom.uniform( element.length );
             
             if( tree.get(element[aux]) == null ){
-                tree.put( element[aux], aux );
+                tree.put( element[aux], aux + "a" );
                 i++;
             }
             

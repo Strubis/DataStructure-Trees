@@ -269,7 +269,7 @@ public class TreeView extends Display {
         }
 
         public int getColor( VisualItem item ) {
-
+            
             String tipo = item.getString( "tipo" );
             String nome = item.getString( "nome" );
             
@@ -291,13 +291,17 @@ public class TreeView extends Display {
     }
 
     private class EdgeColorAction extends ColorAction {
-
+        
         public EdgeColorAction( String group ) {
             super( group, VisualItem.STROKECOLOR );
         }
 
         public int getColor( VisualItem item ) {
-
+            // Realizar a modificação para a árvore Black-Red
+//            if( item.getString("source").equals("0") ){
+//                item.setStroke( new BasicStroke( 4.5f ));
+//                return ColorLib.rgb( 100, 255, 150 );
+//            }
             item.setStroke( new BasicStroke( 1.5f ) );
             return ColorLib.rgb( 0, 0, 0 );
 
