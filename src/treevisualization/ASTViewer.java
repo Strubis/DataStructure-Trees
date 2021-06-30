@@ -12,6 +12,7 @@ import edu.princeton.cs.algs4.StdRandom;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import trees.BlackRedBST;
 
 /**
  * The main class, responsible for displaying the graphical interface 
@@ -22,6 +23,7 @@ import java.io.PrintWriter;
  */
 public class ASTViewer extends javax.swing.JFrame {
     private BST tree;
+    private BlackRedBST redBlack;
     
     /**
      * Creates new form JanelaVisualizacaoArvore
@@ -41,6 +43,7 @@ public class ASTViewer extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnBST = new javax.swing.JButton();
+        btnRedBlack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("AST Viewer");
@@ -60,13 +63,26 @@ public class ASTViewer extends javax.swing.JFrame {
             }
         });
 
+        btnRedBlack.setBackground(new java.awt.Color(204, 204, 204));
+        btnRedBlack.setFont(new java.awt.Font("Lucida Console", 1, 12)); // NOI18N
+        btnRedBlack.setForeground(new java.awt.Color(51, 51, 51));
+        btnRedBlack.setText("Red Black Tree");
+        btnRedBlack.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnRedBlack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRedBlackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(74, 74, 74)
-                .addComponent(btnBST)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnBST, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRedBlack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(74, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -74,7 +90,9 @@ public class ASTViewer extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(btnBST)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnRedBlack)
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -98,11 +116,11 @@ public class ASTViewer extends javax.swing.JFrame {
         
         try{
             
-            insertElements();
+            insertElementsTree();
             
             PrintWriter pw = new PrintWriter( new File( "ast.xml" ) );
-            tree.visitRoot(tree.getRoot());
-            pw.write(tree.getXMLArvore());
+            tree.visitRoot( tree.getRoot() );
+            pw.write( tree.getXMLArvore() );
             pw.close();
             
             new JDTreeView( this, true ).setVisible( true );
@@ -112,11 +130,30 @@ public class ASTViewer extends javax.swing.JFrame {
         } 
         
     }//GEN-LAST:event_btnBSTActionPerformed
+
+    private void btnRedBlackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRedBlackActionPerformed
+        redBlack = new BlackRedBST();
+        
+        try{
+            
+            insertElementsRedBlack();
+            
+            PrintWriter pw = new PrintWriter( new File( "ast.xml" ) );
+            redBlack.visitRoot( redBlack.getRoot() );
+            pw.write( redBlack.getXMLArvore() );
+            pw.close();
+            
+            new JDTreeView( this, true ).setVisible( true );
+            
+        }catch(FileNotFoundException fl){
+            System.out.println( fl.getMessage() );
+        }
+    }//GEN-LAST:event_btnRedBlackActionPerformed
     
     /**
      * This method generates a random string [].
      */
-    private void insertElements(){
+    private void insertElementsTree(){
         String[] element = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
                 .split(" ");
         
@@ -127,6 +164,24 @@ public class ASTViewer extends javax.swing.JFrame {
             
             if( tree.get(element[aux]) == null ){
                 tree.put( element[aux], aux );
+                i++;
+            }
+            
+        }while( i < 10 );
+        
+    }
+    
+    private void insertElementsRedBlack(){
+        String[] element = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+                .split(" ");
+        
+        int i = 0;
+        
+        do{
+            int aux = StdRandom.uniform( element.length );
+            
+            if( redBlack.get(element[aux]) == null ){
+                redBlack.put( element[aux], aux );
                 i++;
             }
             
@@ -152,6 +207,7 @@ public class ASTViewer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBST;
+    private javax.swing.JButton btnRedBlack;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

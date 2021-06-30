@@ -301,41 +301,29 @@ public class TreeView extends Display {
         }
         
         public int getColor( VisualItem item ) {
-            // Realizar a modificação para a árvore Black-Red
-//            if( item.getString("source").equals("0") ){
-//                item.setStroke( new BasicStroke( 4.5f ));
-//                return ColorLib.rgb( 100, 255, 150 );
-//            }
+            // Pega o nó em questão para verificar se é uma RedBlackTree.
+            Node t = treeAux.getNode( item.getRow() );
+            String ob1 = "", ob2 = "";
+            
+            // Se o nó não for nulo, pega os filhos da esquerda e da direita.
+            if(t != null){
+                Node leftNode = t.getChild(0);
+                Node rightNode = t.getChild(1);
+                
+                // Os filhos não sendo nulos, verifica-se se são vermelhos 
+                // (se contém a string "true").
+                if( leftNode != null && rightNode != null ){
+                    ob1 = leftNode.toString();
+                    ob2 = rightNode.toString();
+
+                    if( ob1.contains("true") || ob2.contains("true") ){
+                        item.setStroke( new BasicStroke( 1.5f ) );
+                        return ColorLib.rgb( 255, 42, 0 );
+                    }
+                }
+            }
+            
             item.setStroke( new BasicStroke( 1.5f ) );
-            
-//            Node t = treeAux.getNode( item.getRow() );
-//            String ob1 = "", ob2 = "";
-//            //System.out.println(t);
-//            if(t != null){
-//                Node esq = t.getChild(0);
-//                Node dir = t.getChild(1);
-//                System.out.println(esq + " <> " + dir);
-//                if( esq != null && dir != null ){
-//                    ob1 = esq.toString();
-//                    ob2 = dir.toString();
-//
-//                    if( ob1.contains("null") || ob2.contains("null") ){
-//
-//
-//                        //ob1 = a.toString();
-//                        //System.out.println(a.get(0) + " " + a);
-//
-//                        //String x = a.get(0).toString();
-//                        //if(item.getString("source"))
-//                        item.setStroke( new BasicStroke( 1.5f ) );
-//                        return ColorLib.rgb( 255, 42, 0 );
-//                    }
-//                }
-//            }
-            //System.out.println( ob );
-            
-            
-            
             return ColorLib.rgb( 0, 0, 0 );
 
         }

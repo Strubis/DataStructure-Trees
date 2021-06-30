@@ -58,7 +58,7 @@ public class BlackRedBST<Key extends Comparable<Key>, Value> {
 
         return false;
     }
-
+    
     // Faz a rotação para a esquerda.
     private Node rotateLeft(Node h) {
         Node aux = h.right;
@@ -147,22 +147,22 @@ public class BlackRedBST<Key extends Comparable<Key>, Value> {
     public void visitRoot(Node x){
         // Se não tiver filhos, criamos um nó folha.
         if( x.left == null && x.right == null ){
-            createLeaf( x.key.toString() );
+            createLeaf( x.key.toString(), x.color );
             return;
         }
         
-        openBranch( x.key.toString(), "raiz" );
+        openBranch( x.key.toString(), "raiz", x.color );
         
         if( x.left != null ){
             visitLeft( x.left );
         }else{
-            createLeaf( "null" );
+            createLeaf( "null", x.color );
         }
         
         if( x.right != null ){
             visitRight( x.right );
         }else{
-            createLeaf( "null" );
+            createLeaf( "null", x.color );
         }
         
         closeBranch();
@@ -170,22 +170,22 @@ public class BlackRedBST<Key extends Comparable<Key>, Value> {
     
     public void visitLeft(Node l){
         if( l.left == null && l.right == null ){
-            createLeaf( l.key.toString() );
+            createLeaf( l.key.toString(), l.color );
             return;
         }
         
-        openBranch( l.key.toString() );
+        openBranch( l.key.toString(), l.color );
         
         if( l.left != null ){
             visitLeft( l.left );
         }else{
-            createLeaf( "null" );
+            createLeaf( "null", l.color );
         }
         
         if( l.right != null ){
             visitRight( l.right );
         }else{
-            createLeaf( "null" );
+            createLeaf( "null", l.color );
         }
         
         closeBranch();
@@ -193,22 +193,22 @@ public class BlackRedBST<Key extends Comparable<Key>, Value> {
     
     public void visitRight(Node r){
         if( r.left == null && r.right == null ){
-            createLeaf( r.key.toString() );
+            createLeaf( r.key.toString(), r.color );
             return;
         }
         
-        openBranch( r.key.toString() );
+        openBranch( r.key.toString(), r.color );
         
         if( r.left != null ){
             visitLeft( r.left );
         }else{
-            createLeaf( "null" );
+            createLeaf( "null", r.color );
         }
         
         if( r.right != null ){
             visitRight( r.right );
         }else{
-            createLeaf( "null" );
+            createLeaf( "null", r.color );
         }
         
         closeBranch();
@@ -231,16 +231,17 @@ public class BlackRedBST<Key extends Comparable<Key>, Value> {
         
     }
     
-    private void openBranch( String branchName, String nodeType ) {
+    private void openBranch( String branchName, String nodeType, Boolean color ) {
         level++;
         localIdentation = generateIdentation();
         sb.append( localIdentation ).append( "<branch>" ).append( "\n" );
         sb.append( localIdentation ).append( identationString ).append( "<attribute name=\"nome\" value=\" " ).append( branchName ).append( " \"/>" ).append( "\n" );
         sb.append( localIdentation ).append( identationString ).append( "<attribute name=\"tipo\" value=\"" ).append( nodeType ).append( "\"/>" ).append( "\n" );
+        sb.append( localIdentation ).append( identationString ).append( "<attribute name=\"cor\" value=\" " ).append( color ).append( " \"/>" ).append( "\n" );
     }
     
-    private void openBranch( String branchName ) {
-        openBranch( branchName, "galho" );
+    private void openBranch( String branchName, Boolean color ) {
+        openBranch( branchName, "galho", color );
     }
     
     private void closeBranch() {
@@ -249,10 +250,11 @@ public class BlackRedBST<Key extends Comparable<Key>, Value> {
         localIdentation = generateIdentation();
     }
     
-    private void createLeaf( String leafValue ) {
+    private void createLeaf( String leafValue, Boolean color ) {
         sb.append( localIdentation ).append( "<leaf>" ).append( "\n" );
         sb.append( localIdentation ).append( identationString ).append( "<attribute name=\"nome\" value=\" " ).append( leafValue ).append( " \"/>" ).append( "\n" );
         sb.append( localIdentation ).append( identationString ).append( "<attribute name=\"tipo\" value=\"folha\"/>" ).append( "\n" );
+        sb.append( localIdentation ).append( identationString ).append( "<attribute name=\"cor\" value=\" " ).append( color ).append( " \"/>" ).append( "\n" );
         sb.append( localIdentation ).append( "</leaf>" ).append( "\n" );
     }
     
