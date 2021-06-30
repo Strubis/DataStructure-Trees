@@ -6,10 +6,15 @@ package trees;
  */
 public class BlackRedBST<Key extends Comparable<Key>, Value> {
 
+    private static int level = 0;
+    private static final String identationString = "  ";
+    private String localIdentation = "";
+    private StringBuilder sb = new StringBuilder();
+    
     private Node root;
     private static final boolean RED = true;
     private static final boolean BLACK = false;
-
+    
     private class Node {
 
         private Key key;
@@ -133,5 +138,130 @@ public class BlackRedBST<Key extends Comparable<Key>, Value> {
         
         return h;
     }
-
+    
+    // A partir daqui é uma implementação teste para uma exibição gráfica.
+    public Node getRoot(){
+        return root;
+    }
+    
+    public void visitRoot(Node x){
+        // Se não tiver filhos, criamos um nó folha.
+        if( x.left == null && x.right == null ){
+            createLeaf( x.key.toString() );
+            return;
+        }
+        
+        openBranch( x.key.toString(), "raiz" );
+        
+        if( x.left != null ){
+            visitLeft( x.left );
+        }else{
+            createLeaf( "null" );
+        }
+        
+        if( x.right != null ){
+            visitRight( x.right );
+        }else{
+            createLeaf( "null" );
+        }
+        
+        closeBranch();
+    }
+    
+    public void visitLeft(Node l){
+        if( l.left == null && l.right == null ){
+            createLeaf( l.key.toString() );
+            return;
+        }
+        
+        openBranch( l.key.toString() );
+        
+        if( l.left != null ){
+            visitLeft( l.left );
+        }else{
+            createLeaf( "null" );
+        }
+        
+        if( l.right != null ){
+            visitRight( l.right );
+        }else{
+            createLeaf( "null" );
+        }
+        
+        closeBranch();
+    }
+    
+    public void visitRight(Node r){
+        if( r.left == null && r.right == null ){
+            createLeaf( r.key.toString() );
+            return;
+        }
+        
+        openBranch( r.key.toString() );
+        
+        if( r.left != null ){
+            visitLeft( r.left );
+        }else{
+            createLeaf( "null" );
+        }
+        
+        if( r.right != null ){
+            visitRight( r.right );
+        }else{
+            createLeaf( "null" );
+        }
+        
+        closeBranch();
+    }
+    
+    public String getXMLArvore() {
+        
+        StringBuilder intSb = new StringBuilder();
+        
+        intSb.append( "<tree>" ).append( "\n" );
+        intSb.append( identationString ).append( "<declarations>" ).append( "\n" );
+        intSb.append( identationString ).append( identationString ).append( "<attributeDecl name=\"nome\" type=\"String\"/>" ).append( "\n" );
+        intSb.append( identationString ).append( identationString ).append( "<attributeDecl name=\"tipo\" type=\"String\"/>" ).append( "\n" );
+        intSb.append( identationString ).append( identationString ).append( "<attributeDecl name=\"cor\" type=\"String\"/>" ).append( "\n" );
+        intSb.append( identationString ).append( "</declarations>" ).append( "\n" );
+        intSb.append( sb );
+        intSb.append( "</tree>" );
+        
+        return intSb.toString();
+        
+    }
+    
+    private void openBranch( String branchName, String nodeType ) {
+        level++;
+        localIdentation = generateIdentation();
+        sb.append( localIdentation ).append( "<branch>" ).append( "\n" );
+        sb.append( localIdentation ).append( identationString ).append( "<attribute name=\"nome\" value=\" " ).append( branchName ).append( " \"/>" ).append( "\n" );
+        sb.append( localIdentation ).append( identationString ).append( "<attribute name=\"tipo\" value=\"" ).append( nodeType ).append( "\"/>" ).append( "\n" );
+    }
+    
+    private void openBranch( String branchName ) {
+        openBranch( branchName, "galho" );
+    }
+    
+    private void closeBranch() {
+        sb.append( localIdentation ).append( "</branch>" ).append( "\n" );
+        level--;
+        localIdentation = generateIdentation();
+    }
+    
+    private void createLeaf( String leafValue ) {
+        sb.append( localIdentation ).append( "<leaf>" ).append( "\n" );
+        sb.append( localIdentation ).append( identationString ).append( "<attribute name=\"nome\" value=\" " ).append( leafValue ).append( " \"/>" ).append( "\n" );
+        sb.append( localIdentation ).append( identationString ).append( "<attribute name=\"tipo\" value=\"folha\"/>" ).append( "\n" );
+        sb.append( localIdentation ).append( "</leaf>" ).append( "\n" );
+    }
+    
+    private String generateIdentation() {
+        StringBuilder sb = new StringBuilder();
+        for ( int i = 0; i < level; i++ ) {
+            sb.append( identationString );
+        }
+        return sb.toString();
+    }
+    
 }
