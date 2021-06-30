@@ -8,6 +8,8 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.geom.Point2D;
+import java.util.Arrays;
+import java.util.Iterator;
 import prefuse.Constants;
 import prefuse.Display;
 import prefuse.Visualization;
@@ -30,6 +32,7 @@ import prefuse.controls.PanControl;
 import prefuse.controls.WheelZoomControl;
 import prefuse.controls.ZoomControl;
 import prefuse.controls.ZoomToFitControl;
+import prefuse.data.Node;
 import prefuse.data.Tree;
 import prefuse.data.tuple.TupleSet;
 import prefuse.render.AbstractShapeRenderer;
@@ -52,7 +55,8 @@ import prefuse.visual.sort.TreeDepthItemSorter;
  * usada como auxiliar para este projeto.
  */
 public class TreeView extends Display {
-
+    
+    private static Tree treeAux;
     private static final String tree = "tree";
     private static final String treeNodes = "tree.nodes";
     private static final String treeEdges = "tree.edges";
@@ -66,10 +70,10 @@ public class TreeView extends Display {
     private Color corFolha;
 
     public TreeView( Tree t, String label ) {
-
+        
         super( new Visualization() );
         this.label = label;
-
+        treeAux = t;
         corRaiz = new Color( 255, 139, 115 );
         corGalho = new Color( 255, 207, 115 );
         corFolha = new Color( 95, 192, 206 );
@@ -295,7 +299,7 @@ public class TreeView extends Display {
         public EdgeColorAction( String group ) {
             super( group, VisualItem.STROKECOLOR );
         }
-
+        
         public int getColor( VisualItem item ) {
             // Realizar a modificação para a árvore Black-Red
 //            if( item.getString("source").equals("0") ){
@@ -303,6 +307,35 @@ public class TreeView extends Display {
 //                return ColorLib.rgb( 100, 255, 150 );
 //            }
             item.setStroke( new BasicStroke( 1.5f ) );
+            
+//            Node t = treeAux.getNode( item.getRow() );
+//            String ob1 = "", ob2 = "";
+//            //System.out.println(t);
+//            if(t != null){
+//                Node esq = t.getChild(0);
+//                Node dir = t.getChild(1);
+//                System.out.println(esq + " <> " + dir);
+//                if( esq != null && dir != null ){
+//                    ob1 = esq.toString();
+//                    ob2 = dir.toString();
+//
+//                    if( ob1.contains("null") || ob2.contains("null") ){
+//
+//
+//                        //ob1 = a.toString();
+//                        //System.out.println(a.get(0) + " " + a);
+//
+//                        //String x = a.get(0).toString();
+//                        //if(item.getString("source"))
+//                        item.setStroke( new BasicStroke( 1.5f ) );
+//                        return ColorLib.rgb( 255, 42, 0 );
+//                    }
+//                }
+//            }
+            //System.out.println( ob );
+            
+            
+            
             return ColorLib.rgb( 0, 0, 0 );
 
         }

@@ -4,35 +4,39 @@
     <attributeDecl name="tipo" type="String"/>
   </declarations>
   <branch>
-    <attribute name="nome" value=" P "/>
+    <attribute name="nome" value=" M "/>
     <attribute name="tipo" value="raiz"/>
     <branch>
-      <attribute name="nome" value=" H "/>
+      <attribute name="nome" value=" D "/>
       <attribute name="tipo" value="galho"/>
+    <leaf>
+      <attribute name="nome" value=" B "/>
+      <attribute name="tipo" value="folha"/>
+    </leaf>
       <branch>
-        <attribute name="nome" value=" A "/>
+        <attribute name="nome" value=" H "/>
         <attribute name="tipo" value="galho"/>
       <leaf>
-        <attribute name="nome" value=" null "/>
+        <attribute name="nome" value=" G "/>
         <attribute name="tipo" value="folha"/>
       </leaf>
       <leaf>
-        <attribute name="nome" value=" F "/>
+        <attribute name="nome" value=" K "/>
         <attribute name="tipo" value="folha"/>
       </leaf>
       </branch>
+    </branch>
+    <branch>
+      <attribute name="nome" value=" Y "/>
+      <attribute name="tipo" value="galho"/>
       <branch>
-        <attribute name="nome" value=" J "/>
+        <attribute name="nome" value=" X "/>
         <attribute name="tipo" value="galho"/>
-      <leaf>
-        <attribute name="nome" value=" null "/>
-        <attribute name="tipo" value="folha"/>
-      </leaf>
         <branch>
-          <attribute name="nome" value=" L "/>
+          <attribute name="nome" value=" Q "/>
           <attribute name="tipo" value="galho"/>
         <leaf>
-          <attribute name="nome" value=" K "/>
+          <attribute name="nome" value=" P "/>
           <attribute name="tipo" value="folha"/>
         </leaf>
         <leaf>
@@ -40,27 +44,15 @@
           <attribute name="tipo" value="folha"/>
         </leaf>
         </branch>
-      </branch>
-    </branch>
-    <branch>
-      <attribute name="nome" value=" R "/>
-      <attribute name="tipo" value="galho"/>
-    <leaf>
-      <attribute name="nome" value=" null "/>
-      <attribute name="tipo" value="folha"/>
-    </leaf>
-      <branch>
-        <attribute name="nome" value=" X "/>
-        <attribute name="tipo" value="galho"/>
-      <leaf>
-        <attribute name="nome" value=" W "/>
-        <attribute name="tipo" value="folha"/>
-      </leaf>
       <leaf>
         <attribute name="nome" value=" null "/>
         <attribute name="tipo" value="folha"/>
       </leaf>
       </branch>
+    <leaf>
+      <attribute name="nome" value=" null "/>
+      <attribute name="tipo" value="folha"/>
+    </leaf>
     </branch>
   </branch>
 </tree>

@@ -45,6 +45,7 @@ public class ASTViewer extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("AST Viewer");
         setBackground(new java.awt.Color(102, 102, 102));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -125,7 +126,7 @@ public class ASTViewer extends javax.swing.JFrame {
             int aux = StdRandom.uniform( element.length );
             
             if( tree.get(element[aux]) == null ){
-                tree.put( element[aux], aux + "a" );
+                tree.put( element[aux], aux );
                 i++;
             }
             
