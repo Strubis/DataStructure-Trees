@@ -21,14 +21,14 @@ import trees.BlackRedBST;
  * @author Emerson
  * @since 06/2021
  */
-public class ASTViewer extends javax.swing.JFrame {
+public class BSTViewer extends javax.swing.JFrame {
     private BST tree;
     private BlackRedBST redBlack;
     
     /**
      * Creates new form JanelaVisualizacaoArvore
      */
-    public ASTViewer() {
+    public BSTViewer() {
         initComponents();
     }
     
@@ -46,7 +46,7 @@ public class ASTViewer extends javax.swing.JFrame {
         btnRedBlack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("AST Viewer");
+        setTitle("BST Viewer");
         setBackground(new java.awt.Color(102, 102, 102));
         setResizable(false);
 
@@ -199,7 +199,7 @@ public class ASTViewer extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ASTViewer().setVisible( true );
+                new BSTViewer().setVisible( true );
             }
         });
         

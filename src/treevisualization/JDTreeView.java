@@ -29,7 +29,7 @@ public class JDTreeView extends javax.swing.JDialog {
         super( pai, modal );
         
         setDefaultCloseOperation( DISPOSE_ON_CLOSE );
-        setTitle( "Generated AST" );
+        setTitle( "Generated Tree" );
         
         setSize( Toolkit.getDefaultToolkit().getScreenSize() );
 
