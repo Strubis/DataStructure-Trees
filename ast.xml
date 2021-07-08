@@ -5,58 +5,68 @@
     <attributeDecl name="cor" type="String"/>
   </declarations>
   <branch>
-    <attribute name="nome" value=" M "/>
+    <attribute name="nome" value=" L "/>
     <attribute name="tipo" value="raiz"/>
     <attribute name="cor" value=" true "/>
     <branch>
-      <attribute name="nome" value=" J "/>
+      <attribute name="nome" value=" G "/>
       <attribute name="tipo" value="galho"/>
       <attribute name="cor" value=" false "/>
       <branch>
         <attribute name="nome" value=" E "/>
         <attribute name="tipo" value="galho"/>
-        <attribute name="cor" value=" true "/>
-        <branch>
-          <attribute name="nome" value=" D "/>
-          <attribute name="tipo" value="galho"/>
-          <attribute name="cor" value=" false "/>
-        <leaf>
-          <attribute name="nome" value=" C "/>
-          <attribute name="tipo" value="folha"/>
-          <attribute name="cor" value=" true "/>
-        </leaf>
-        <leaf>
-          <attribute name="nome" value=" null "/>
-          <attribute name="tipo" value="folha"/>
-          <attribute name="cor" value=" false "/>
-        </leaf>
-        </branch>
+        <attribute name="cor" value=" false "/>
       <leaf>
-        <attribute name="nome" value=" I "/>
+        <attribute name="nome" value=" C "/>
+        <attribute name="tipo" value="folha"/>
+        <attribute name="cor" value=" true "/>
+      </leaf>
+      <leaf>
+        <attribute name="nome" value=" null "/>
         <attribute name="tipo" value="folha"/>
         <attribute name="cor" value=" false "/>
       </leaf>
       </branch>
     <leaf>
-      <attribute name="nome" value=" L "/>
+      <attribute name="nome" value=" I "/>
       <attribute name="tipo" value="folha"/>
       <attribute name="cor" value=" false "/>
     </leaf>
     </branch>
     <branch>
-      <attribute name="nome" value=" S "/>
+      <attribute name="nome" value=" Q "/>
       <attribute name="tipo" value="galho"/>
       <attribute name="cor" value=" false "/>
-    <leaf>
-      <attribute name="nome" value=" N "/>
-      <attribute name="tipo" value="folha"/>
-      <attribute name="cor" value=" false "/>
-    </leaf>
-    <leaf>
-      <attribute name="nome" value=" T "/>
-      <attribute name="tipo" value="folha"/>
-      <attribute name="cor" value=" false "/>
-    </leaf>
+      <branch>
+        <attribute name="nome" value=" P "/>
+        <attribute name="tipo" value="galho"/>
+        <attribute name="cor" value=" false "/>
+      <leaf>
+        <attribute name="nome" value=" N "/>
+        <attribute name="tipo" value="folha"/>
+        <attribute name="cor" value=" true "/>
+      </leaf>
+      <leaf>
+        <attribute name="nome" value=" null "/>
+        <attribute name="tipo" value="folha"/>
+        <attribute name="cor" value=" false "/>
+      </leaf>
+      </branch>
+      <branch>
+        <attribute name="nome" value=" Z "/>
+        <attribute name="tipo" value="galho"/>
+        <attribute name="cor" value=" false "/>
+      <leaf>
+        <attribute name="nome" value=" S "/>
+        <attribute name="tipo" value="folha"/>
+        <attribute name="cor" value=" true "/>
+      </leaf>
+      <leaf>
+        <attribute name="nome" value=" null "/>
+        <attribute name="tipo" value="folha"/>
+        <attribute name="cor" value=" false "/>
+      </leaf>
+      </branch>
     </branch>
   </branch>
 </tree>
