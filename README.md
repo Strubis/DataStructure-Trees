@@ -8,3 +8,6 @@ the parent node, but the right node is always bigger than the parent node.
 ## Red Black Tree
 This is a BST that simulates a 2-3 tree, each double node is represented by two simple nodes connected 
 by a red link (always leaning to the left).
+
+## Tries
+In progress...
