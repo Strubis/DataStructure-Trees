@@ -1,7 +1,6 @@
 package trees;
 
 import edu.princeton.cs.algs4.StdRandom;
-import java.util.Arrays;
 
 /**
  *
@@ -94,27 +93,38 @@ public class Trie<Value> {
         return root;
     }
     
+    /**
+     * Adaptar para gerar a árvore gráfica.
+     * 
+     * @param x -> node root
+     */
     public void visitRoot(Node x){
         for (Node node : x.next) {
             if( node != null ){
-                s(node);
+                aux(node);
                 System.out.println();
             }
                 
         }
     }
     
-    public void s(Node x){
+    /**
+     * Adaptar para gerar a árvore gráfica.
+     * 
+     * @param x -> next node
+     */
+    public void aux(Node x){
         for (Node node : x.next) {
             
             if( node != null ){
-                s(node);
+                aux(node);
                 System.out.println( node.value );
             }
             
         }
     }
     
+    // O main foi só para testes, lembrar de excluir na versão final da classe.
     public static void main(String[] args) {
         Trie trie = new Trie();
         
