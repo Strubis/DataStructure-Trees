@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import trees.BlackRedBST;
+import trees.Trie;
 
 /**
  * The main class, responsible for displaying the graphical interface 
@@ -24,6 +25,7 @@ import trees.BlackRedBST;
 public class BSTViewer extends javax.swing.JFrame {
     private BST tree;
     private BlackRedBST redBlack;
+    private Trie trie;
     
     /**
      * Creates new form JanelaVisualizacaoArvore
@@ -44,6 +46,7 @@ public class BSTViewer extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnBST = new javax.swing.JButton();
         btnRedBlack = new javax.swing.JButton();
+        btnTries = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BST Viewer");
@@ -74,6 +77,17 @@ public class BSTViewer extends javax.swing.JFrame {
             }
         });
 
+        btnTries.setBackground(new java.awt.Color(204, 204, 204));
+        btnTries.setFont(new java.awt.Font("Lucida Console", 1, 12)); // NOI18N
+        btnTries.setForeground(new java.awt.Color(51, 51, 51));
+        btnTries.setText("Tries");
+        btnTries.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnTries.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTriesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -82,7 +96,8 @@ public class BSTViewer extends javax.swing.JFrame {
                 .addGap(74, 74, 74)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnBST, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRedBlack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnRedBlack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnTries, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(74, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -92,7 +107,9 @@ public class BSTViewer extends javax.swing.JFrame {
                 .addComponent(btnBST)
                 .addGap(18, 18, 18)
                 .addComponent(btnRedBlack)
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnTries)
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -149,6 +166,25 @@ public class BSTViewer extends javax.swing.JFrame {
             System.out.println( fl.getMessage() );
         }
     }//GEN-LAST:event_btnRedBlackActionPerformed
+
+    private void btnTriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTriesActionPerformed
+        trie = new Trie();
+        
+        try{
+            
+            insertElementsTries( 3, 5 );
+            
+            PrintWriter pw = new PrintWriter( new File( "ast.xml" ) );
+            trie.visitRoot( trie.getRoot() );
+            pw.write( trie.getXMLArvore() );
+            pw.close();
+            
+            new JDTreeView( this, true ).setVisible( true );
+            
+        }catch(FileNotFoundException fl){
+            System.out.println( fl.getMessage() );
+        }
+    }//GEN-LAST:event_btnTriesActionPerformed
     
     /**
      * This method generates a random string [].
@@ -190,6 +226,30 @@ public class BSTViewer extends javax.swing.JFrame {
     }
     
     /**
+     * Method developed to generate random strings, using the Algs4 library
+     * to generate indexes.
+     * 
+     * @param lenString length of each string.
+     * @param numString number of strings.
+     */
+    private void insertElementsTries(int lenString, int numString){
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        
+        for(int i = 0; i < numString; i++){
+            String s = "";
+            
+            for(int j = 0; j < lenString; j++){
+                int letter = StdRandom.uniform( 0, alphabet.length() );
+                char c = alphabet.charAt( letter );
+                
+                s += c;
+            }
+            
+            trie.put( s, StdRandom.uniform( 0, 100 ) );
+        }
+    }
+    
+    /**
      * @param args the command line arguments
      */
     public static void main( String args[] ) {
@@ -208,6 +268,7 @@ public class BSTViewer extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBST;
     private javax.swing.JButton btnRedBlack;
+    private javax.swing.JButton btnTries;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
