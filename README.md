@@ -10,4 +10,5 @@ This is a BST that simulates a 2-3 tree, each double node is represented by two 
 by a red link (always leaning to the left).
 
 ## Tries
-In progress...
+This tree is used to implement string symbol tables, each node can have n children, one for each 
+possible character.
