@@ -4,27 +4,119 @@
     <attributeDecl name="tipo" type="String"/>
   </declarations>
   <branch>
-    <attribute name="nome" value=" null "/>
+    <attribute name="nome" value="   "/>
     <attribute name="tipo" value="raiz"/>
     <branch>
-      <attribute name="nome" value=" 9 "/>
+      <attribute name="nome" value=" F "/>
       <attribute name="tipo" value="galho"/>
+      <branch>
+        <attribute name="nome" value=" C "/>
+        <attribute name="tipo" value="galho"/>
+        <branch>
+          <attribute name="nome" value=" A "/>
+          <attribute name="tipo" value="galho"/>
+        </branch>
+      </branch>
+      <branch>
+        <attribute name="nome" value=" Q "/>
+        <attribute name="tipo" value="galho"/>
+        <branch>
+          <attribute name="nome" value=" I "/>
+          <attribute name="tipo" value="galho"/>
+        </branch>
+      </branch>
     </branch>
     <branch>
-      <attribute name="nome" value=" 11 "/>
+      <attribute name="nome" value=" I "/>
       <attribute name="tipo" value="galho"/>
+      <branch>
+        <attribute name="nome" value=" P "/>
+        <attribute name="tipo" value="galho"/>
+        <branch>
+          <attribute name="nome" value=" A "/>
+          <attribute name="tipo" value="galho"/>
+        </branch>
+      </branch>
     </branch>
     <branch>
-      <attribute name="nome" value=" 0 "/>
+      <attribute name="nome" value=" J "/>
       <attribute name="tipo" value="galho"/>
+      <branch>
+        <attribute name="nome" value=" F "/>
+        <attribute name="tipo" value="galho"/>
+        <branch>
+          <attribute name="nome" value=" R "/>
+          <attribute name="tipo" value="galho"/>
+        </branch>
+      </branch>
     </branch>
     <branch>
-      <attribute name="nome" value=" 81 "/>
+      <attribute name="nome" value=" N "/>
       <attribute name="tipo" value="galho"/>
+      <branch>
+        <attribute name="nome" value=" K "/>
+        <attribute name="tipo" value="galho"/>
+        <branch>
+          <attribute name="nome" value=" M "/>
+          <attribute name="tipo" value="galho"/>
+        </branch>
+      </branch>
     </branch>
     <branch>
-      <attribute name="nome" value=" 95 "/>
+      <attribute name="nome" value=" O "/>
       <attribute name="tipo" value="galho"/>
+      <branch>
+        <attribute name="nome" value=" Z "/>
+        <attribute name="tipo" value="galho"/>
+        <branch>
+          <attribute name="nome" value=" G "/>
+          <attribute name="tipo" value="galho"/>
+        </branch>
+      </branch>
+    </branch>
+    <branch>
+      <attribute name="nome" value=" Q "/>
+      <attribute name="tipo" value="galho"/>
+      <branch>
+        <attribute name="nome" value=" Z "/>
+        <attribute name="tipo" value="galho"/>
+        <branch>
+          <attribute name="nome" value=" O "/>
+          <attribute name="tipo" value="galho"/>
+        </branch>
+      </branch>
+    </branch>
+    <branch>
+      <attribute name="nome" value=" S "/>
+      <attribute name="tipo" value="galho"/>
+      <branch>
+        <attribute name="nome" value=" M "/>
+        <attribute name="tipo" value="galho"/>
+        <branch>
+          <attribute name="nome" value=" Y "/>
+          <attribute name="tipo" value="galho"/>
+        </branch>
+      </branch>
+    </branch>
+    <branch>
+      <attribute name="nome" value=" U "/>
+      <attribute name="tipo" value="galho"/>
+      <branch>
+        <attribute name="nome" value=" G "/>
+        <attribute name="tipo" value="galho"/>
+        <branch>
+          <attribute name="nome" value=" X "/>
+          <attribute name="tipo" value="galho"/>
+        </branch>
+      </branch>
+      <branch>
+        <attribute name="nome" value=" W "/>
+        <attribute name="tipo" value="galho"/>
+        <branch>
+          <attribute name="nome" value=" D "/>
+          <attribute name="tipo" value="galho"/>
+        </branch>
+      </branch>
     </branch>
   </branch>
 </tree>

@@ -172,7 +172,7 @@ public class BSTViewer extends javax.swing.JFrame {
         
         try{
             
-            insertElementsTries( 3, 5 );
+            insertElementsTries( 3, 10 );
             
             PrintWriter pw = new PrintWriter( new File( "ast.xml" ) );
             trie.visitRoot( trie.getRoot() );

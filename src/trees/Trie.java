@@ -1,11 +1,9 @@
 package trees;
 
-import edu.princeton.cs.algs4.StdRandom;
-import java.util.Arrays;
-
 /**
  *
  * @author Emerson
+ * @param <Value> value type for trie
  */
 public class Trie<Value> {
     private static final int R = 256;
@@ -15,11 +13,11 @@ public class Trie<Value> {
     private static int level = 0;
     private static final String identationString = "  ";
     private String localIdentation = "";
-    private StringBuilder sb = new StringBuilder();
+    private final StringBuilder sb = new StringBuilder();
     
     private static class Node{
         private Object value;
-        private Node[] next = new Node[R];
+        private final Node[] next = new Node[R];
     }
     
     public void put(String key, Value val){
@@ -104,33 +102,32 @@ public class Trie<Value> {
             return;
         }
         
-        openBranch( null, "raiz" );
+        openBranch( " ", "raiz" );
         
-        for (Node node : x.next) {
-            if( node != null ){
-                generateChildNode(node);
+        for (int i = 0; i < x.next.length; i++) {
+            if( x.next[i] != null ){
+                char c = (char) i;
+                openBranch( "" + c );
+                
+                generateChildNode( x.next[i] );
+                
+                closeBranch();
             }
         }
         
         closeBranch();
     }
     
-    /**
-     * Adaptar para pegar cada letra e não o valor correspondente.
-     * Talvez criar uma variável auxiliar que conterá o texto de cada inserção?
-     */
     private void generateChildNode(Node x){
-        for (Node node : x.next) {
-            
-            if( node != null ){
-                generateChildNode(node);
+        for (int i = 0; i < x.next.length; i++) {
+            if( x.next[i] != null ){
+                char c = (char) i;
+                openBranch( "" + c );
                 
-                if( node.value != null ){
-                    openBranch( node.value.toString() );
-                    closeBranch();
-                }
+                generateChildNode( x.next[i] );
+                
+                closeBranch();
             }
-            
         }
     }
     
@@ -176,22 +173,4 @@ public class Trie<Value> {
         return sb.toString();
     }
     
-    // O main foi só para testes, lembrar de excluir na versão final da classe.
-    public static void main(String[] args) {
-        Trie trie = new Trie();
-        
-        String[] str = "is th ti fo al go pe to co to th ai of th pa".split(" ");
-        for( String s : str )
-            trie.put( s, StdRandom.uniform( 0, 100 ) );
-        
-        Node x = trie.getRoot();
-        trie.visitRoot(x);
-        for( String s : str )
-            System.out.println( "\t" + s + " -> " + trie.get(s) );
-        
-        
-        
-        //System.out.println(x.next['t'].next['h'].value);
-        
-    }
 }
